@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="detail-card.html">
+<polymer-element name="post-list" noscript>
+  <template>
+    <core-ajax
+      auto
+      url="http://postonsundays.herokuapp.com/posts"
+      handleAs="json"
+      response = "{{replyObject}}"
+    ></core-ajax>
+    <div class="container" layout style="height 10%">
+      <template repeat="{{post in replyObject.posts}}">
+        <div class="container" flex>
+        <detail-card>
+          <h1>"{{post.title}}"</h1>
+          <h2>"{{post.author_name}}"</h2>
+          <p>"{{post.content}}"</p>
+        </detail-card>
+      </div>
+      </template>
+    </div>
+  </template>
+</polymer-element>

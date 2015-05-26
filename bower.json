@@ -1,0 +1,21 @@
+{
+  "name": "fresh",
+  "version": "0.0.0",
+  "authors": [
+    "Charles <whitfield.cw@gmail.com>"
+  ],
+  "description": "new polypost attempt",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#~0.5.6",
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.6"
+  }
+}

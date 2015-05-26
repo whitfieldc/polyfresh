@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fresh</title>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="elements/builtin.html">
+    <link rel="import" href="elements/post-list.html">
+    <link rel="import" href="elements/post-form.html">
+    <link rel="stylesheet" href="app.css">
+
+  </head>
+  <body fullbleed fit layout vertical>
+    <template is="auto-binding" id="app">
+         <core-drawer-panel>
+    <core-header-panel drawer>
+      <core-toolbar>Menu</core-toolbar>
+      <core-menu selected="{{page}}" valueattr="data-category">
+        <core-item label="Home"></core-item>
+        <core-item label="Portfolio"></core-item>
+        <core-item label="Posts"></core-item>
+      </core-menu>
+    </core-header-panel>
+    <core-header-panel main>
+      <core-toolbar>
+        <paper-icon-button core-drawer-toggle icon="menu"></paper-icon-button>
+        <div>Polyposts</div>
+        <span flex></span>
+      </core-toolbar>
+
+      <div class="container" fit layout vertical>
+        <core-pages selected="{{page}}" valueattr="data-category">
+          <section data-category="home">
+            <h1>Home</h1>
+            <div>This is home content</div>
+          </section>
+          <section data-category="portfolio">
+            <h1>Portfolio</h1>
+            <div><post-form></post-form></div>
+          </section>
+          <section data-category="posts">
+            <h1>Posts</h1>
+            <post-list></post-list>
+          </section>
+        </core-pages>
+      </div>
+    </core-header-panel>
+  </core-drawer-panel>
+    </template>
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+  </body>
+</html>

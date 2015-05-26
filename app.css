@@ -1,0 +1,28 @@
+html,body {
+  height: 100%;
+  margin: 0;
+  background-color: #E5E5E5;
+  font-family: 'RobotoDraft', sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+core-toolbar {
+  background-color: #03A9F4;
+  color: white;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+[main] {
+  background-color: #EEEEEE;
+}
+
+[drawer] {
+  background-color: #EEEEEE;
+}
