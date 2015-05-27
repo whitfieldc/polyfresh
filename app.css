@@ -26,3 +26,7 @@ body {
 [drawer] {
   background-color: #ECEFF1;
 }
+
+submission-widget {
+  float: right;
+}

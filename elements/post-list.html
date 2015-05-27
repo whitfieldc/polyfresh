@@ -1,6 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="detail-card.html">
 <polymer-element name="post-list" noscript>
   <template>
@@ -10,9 +9,9 @@
       handleAs="json"
       response = "{{replyObject}}"
     ></core-ajax>
-    <div class="container" layout style="height 10%">
+    <div class="container" layout vertical reverse style="height 10%">
       <template repeat="{{post in replyObject.posts}}">
-        <div class="container" flex>
+        <div class="container">
         <detail-card>
           <h1>"{{post.title}}"</h1>
           <h2>"{{post.author_name}}"</h2>
@@ -20,7 +19,6 @@
         </detail-card>
       </div>
       </template>
-      <paper-fab></paper-fab>
     </div>
   </template>
 </polymer-element>

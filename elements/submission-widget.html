@@ -1,0 +1,50 @@
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-action-dialog.html">
+
+
+<polymer-element name="submission-widget">
+  <template>
+    <style>
+    paper-fab {
+      float: right;
+    }
+    </style>
+    <div class="container">
+      <paper-action-dialog id="dialog" backdrop heading="Hello">
+        <!-- <post-form></post-form> -->
+        <paper-input label="Title"value="{{title}}"></paper-input>
+        <paper-input label="Author"value="{{name}}"></paper-input>
+        <paper-input-decorator floatingLabel label="Content">
+          <textarea label="content"value="{{content}}"></textarea>
+        </paper-input-decorator>
+        <paper-button dismissive>Cancel</paper-button>
+        <paper-button on-click="{{submitClick}}" affirmative>Submit</paper-button>
+        <core-ajax id="ajaxSubmit"
+          url="http://postonsundays.herokuapp.com/posts"
+          method="POST"
+          headers='{"Content-Type": "application/json"}'
+          body='{"post":{"title":"{{title}}","author_name":"{{name}}","content":"{{content}}"}}'
+          response="{{response}}"></core-ajax>
+      </paper-action-dialog>
+      <paper-fab on-tap="{{ tapHandler }}"></paper-fab>
+    </div>
+  </template>
+  <script>
+    Polymer( 'submission-widget', {
+      tapHandler: function(){
+        console.log("button tap")
+        this.$.dialog.toggle();
+      },
+      submitClick: function(){
+        console.log("ajax");
+        this.$.ajaxSubmit.go();
+      },
+      responseChanged: function(oldValue) {
+        console.log(this.response);
+      }
+    })
+  </script>
+</polymer-element>
